@@ -1,0 +1,16 @@
+<% layout('boilerplate') -%>
+<% script('/js/foo.js') -%>
+<% stylesheet('/css/style.css') -%>
+<h1 onclick='foo()'><%= seo.keywords %></h1>
+
+<p>EJS Welcome to xxx <%= seo.title %></p>
+<p><%= user.name %></p>
+<% if (something &&  something.list && something.list.length) { %>  
+  <ul>  
+    <% something.list.forEach(function(item){ %>  
+      <li>
+        <span><%= item.fullName %></span>
+      </li>  
+    <% }) %>  
+  </ul>  
+<% } %>
