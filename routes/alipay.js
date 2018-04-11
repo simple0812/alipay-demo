@@ -17,7 +17,7 @@ var ali = new Alipay({
 
 
 router.get('/api/pay', (ctx, next) => {
-  var url=  ali.webPay({
+  var url=  ali.wapPay({
     body: "ttt",
     subject: "ttt1",
     outTradeId: "201503200101010222",
@@ -25,8 +25,8 @@ router.get('/api/pay', (ctx, next) => {
     amount: "0.1",
     sellerId: '',
     product_code: 'FAST_INSTANT_TRADE_PAY',
-    goods_type: "1",
-    return_url:"https://m.alipay.com/Gk8NF23",
+    goods_type: "1"
+    // return_url:"https://m.alipay.com/Gk8NF23",
   })
 
   ctx.body = {url};
