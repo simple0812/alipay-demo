@@ -2,25 +2,40 @@
 <html>
 <head>
 <title>basic example</title>
+<style type="text/css">
+  .box {float: left; margin: 10px;}
+</style>
 </head>
 <body>
 <script src="/js/jquery.min.js"></script>
 <script type="text/javascript" src="/js/jquery.qrcode.js"></script>
 <script type="text/javascript" src="/js/qrcode.js"></script>
 
-<p>Render in table</p>
-<div id="qrcodeTable"></div>
-<p>Render in canvas</p>
-<div id="qrcodeCanvas"></div>
+<div class='box'>
+  <p>pay</p>
+  <div id="qrPay"></div>
+</div>
+
+<div class='box'>
+  <a target='_blank' href='/demo_get.htm'>demo_get</a>
+  <div id="qrGet"></div>
+</div>
+
+<div class='box'>
+  <p>demo_post</p>
+  <div id="qrPost"></div>
+</div>
 <script>
-	//jQuery('#qrcode').qrcode("this plugin is great");
-	jQuery('#qrcodeTable').qrcode({
-		render	: "table",
-		text	: "http://www.wantinghu.com"
-	});	
-	jQuery('#qrcodeCanvas').qrcode({
-		text	: "http://www.wantinghu.com"
-	});	
+  jQuery('#qrPay').qrcode({
+    render  : "table",
+    text  : "http://10.0.1.162:3008/pay.htm"
+  }); 
+  jQuery('#qrGet').qrcode({
+    text  : "http://10.0.1.162:3008/demo_get.htm"
+  }); 
+  jQuery('#qrPost').qrcode({
+    text  : "http://10.0.1.162:3008/demo_post.htm"
+  }); 
 </script>
 
 </body>

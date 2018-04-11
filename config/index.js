@@ -6,7 +6,7 @@ var env = process.env.NODE_ENV || 'development';
 var config = {
   env:env,
   LOG_DIR: path.resolve('.', 'logs'),
-  port:'3000'
+  port:'3008'
 };
 
 var xConfig = env ? dev : prod;

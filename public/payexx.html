@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>basic example</title>
+</head>
+<body>
+<script src="/js/jquery.min.js"></script>
+<script type="text/javascript" src="/js/jquery.qrcode.js"></script>
+<script type="text/javascript" src="/js/qrcode.js"></script>
+<h1>支付</h1>
+<button onclick='pay()'>付款</button>
+<script>
+  var appId = '2016091100486755';
+  var alipayUrl = 'https://openapi.alipaydev.com/gateway.do';
+  var params = {
+    app_id:appId,
+    method:'alipay.trade.wap.pay',
+    charset:'utf-8',
+    sign_type:'RSA2',
+    sign:'XXX',
+    timestamp:'',
+    version:'1.0',
+    biz_content:''
+
+  }
+  function pay() {
+    $.getJSON(alipayUrl, params)
+    .then(function(data) {
+      console.log(data)
+    })
+    .fail(function(err) {
+      console.log(err.message)
+    })
+  }
+</script>
+
+</body>
+</html>
