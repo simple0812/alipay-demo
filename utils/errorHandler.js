@@ -37,12 +37,15 @@ function onerror(app, options) {
     accepts: null,
   };
 
-  options = {...options, ...defaultOptions};
+  options = {
+    ...options,
+    ...defaultOptions
+  };
 
   // copy(defaultOptions).to(options);
   var render = swig.compileFile(options.template);
 
-  app.context.onerror = function(err) {
+  app.context.onerror = function (err) {
     // don't do anything if there is no error.
     // this allows you to pass `this.onerror`
     // to node-style callbacks.
@@ -127,9 +130,9 @@ function onerror(app, options) {
     this.res._headers = {};
     this.set(err.headers);
 
-    this.body = isDev || err.expose
-      ? err.message
-      : http.STATUS_CODES[this.status];
+    this.body = isDev || err.expose ?
+      err.message :
+      http.STATUS_CODES[this.status];
   }
 
   /**
@@ -138,8 +141,12 @@ function onerror(app, options) {
    */
 
   function json(err) {
-    this.body = isDev || err.expose
-      ? { error: err.message }
-      : { error: http.STATUS_CODES[this.status] };
+    this.body = isDev || err.expose ?
+      {
+        error: err.message
+      } :
+      {
+        error: http.STATUS_CODES[this.status]
+      };
   }
 }
